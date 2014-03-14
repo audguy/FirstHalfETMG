@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour {
 		//LocationService ls = new LocationService ();
 		//ls.Start ();
 	}
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape)){Application.Quit();}
+	}
 	void FixedUpdate()
 	{
 
