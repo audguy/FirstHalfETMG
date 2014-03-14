@@ -17,21 +17,21 @@ public class Follow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//
-		transform.position = player.transform.position;
 
-		transform.rotation.Set (transform.rotation.x, 0.0f, transform.rotation.z, 0.0f);
-		//transform.RotateAround(player.rigidbody.position, Vector3.up, chngHdng);
-		transform.position.Set(player.transform.position.x + Offset.x,player.transform.position.y + Offset.y,player.transform.position.z + Offset.z);
+	
+		transform.position = player.transform.position + Offset;
+		transform.LookAt (player.transform.position, Vector3.up);
+		transform.RotateAround (player.transform.position, Vector3.up, chngHdng);
+
 		valu.text = player.transform.position.ToString();
 
-		chngHdng = 0.0f;
+		//chngHdng = 0.0f;
 	}
 
 	void OnGUI()
 	{
 		if (GUI.RepeatButton (new Rect (5, 5, (Screen.width / 10) + 5, Screen.height - 10), "<") == true)
-						chngHdng = -1.0f;
+						chngHdng += -1.0f;
 
 	}
 }

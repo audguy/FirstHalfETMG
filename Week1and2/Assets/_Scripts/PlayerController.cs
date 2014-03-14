@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float Scale=10;
 	public GUIText Accel;
+	public GameObject camera;
 	private bool isEnabled;
 	void Start()
 	{
@@ -23,10 +24,11 @@ public class PlayerController : MonoBehaviour {
 		dir.y = 0;//Input.acceleration.z;
 			//if (dir.sqrMagnitude > 1)
 			//	dir.Normalize();
+		Quaternion rotation = Quaternion.Euler (camera.transform.localRotation.eulerAngles);
+		dir = rotation * dir;
 
-		LocationInfo li = new LocationInfo ();
 		if (isEnabled && Input.location.status == LocationServiceStatus.Running)
-			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude + "\nHeding: " + Input.compass.trueHeading;
+			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude + "\nHeding: " + Input.compass.trueHeading + "\nCamera foreward: " + camera.transform.forward.ToString();
 				else if (Input.location.status == LocationServiceStatus.Initializing)
 						Accel.text = dir.ToString () + "\nLoc data Init";
 		else if (Input.location.status == LocationServiceStatus.Failed)
