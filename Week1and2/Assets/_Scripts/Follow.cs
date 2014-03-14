@@ -4,7 +4,6 @@ using System.Collections;
 public class Follow : MonoBehaviour {
 
 	public GameObject player;
-	public GUIText valu;
 	private Vector3 Offset;
 	private float chngHdng;
 
@@ -17,15 +16,13 @@ public class Follow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-	
 		transform.position = player.transform.position + Offset;
 		transform.LookAt (player.transform.position, Vector3.up);
 		transform.RotateAround (player.transform.position, Vector3.up, chngHdng);
 
-		valu.text = player.transform.position.ToString();
 
-		//chngHdng = 0.0f;
+
+	
 	}
 
 	void OnGUI()

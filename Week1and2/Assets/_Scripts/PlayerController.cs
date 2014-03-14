@@ -29,10 +29,11 @@ public class PlayerController : MonoBehaviour {
 			//if (dir.sqrMagnitude > 1)
 			//	dir.Normalize();
 		Quaternion rotation = Quaternion.Euler (camera.transform.localRotation.eulerAngles);
+		rotation.x = 0.0f;
 		dir = rotation * dir;
 
 		if (isEnabled && Input.location.status == LocationServiceStatus.Running)
-			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude + "\nHeding: " + Input.compass.trueHeading + "\nCamera foreward: " + camera.transform.forward.ToString();
+			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude + "\nHeding: " + Input.compass.trueHeading + "\nCamera fwd: " + camera.transform.forward.ToString();
 				else if (Input.location.status == LocationServiceStatus.Initializing)
 						Accel.text = dir.ToString () + "\nLoc data Init";
 		else if (Input.location.status == LocationServiceStatus.Failed)
