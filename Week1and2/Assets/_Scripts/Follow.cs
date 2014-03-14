@@ -31,7 +31,10 @@ public class Follow : MonoBehaviour {
 	void OnGUI()
 	{
 		if (GUI.RepeatButton (new Rect (5, 5, (Screen.width / 10) + 5, Screen.height - 10), "<") == true)
-						chngHdng += -1.0f;
+			chngHdng += -1.0f;
+
+		if (GUI.RepeatButton (new Rect (Screen.width - ((Screen.width / 10)+5), 5, Screen.width - 5, Screen.height - 10), ">") == true)
+			chngHdng += 1.0f;
 
 	}
 }
