@@ -7,17 +7,22 @@ public class PlayerController : MonoBehaviour {
 	public GUIText Accel;
 	public GameObject camera;
 	private bool isEnabled;
+	private bool wentdown;
 	void Start()
 	{
 		isEnabled = Input.location.isEnabledByUser;
 		Input.location.Start ();
+		wentdown = false;
 
-		//LocationService ls = new LocationService ();
-		//ls.Start ();
 	}
 	void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.Escape)){Application.Quit();}
+
+		if (rigidbody.transform.position.y < -20.0f) {
+			wentdown = true;
+						Application.LoadLevel ("Win");
+				}
 	}
 	void FixedUpdate()
 	{
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 		dir = rotation * dir;
 
 		if (isEnabled && Input.location.status == LocationServiceStatus.Running)
-			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude + "\nHeding: " + Input.compass.trueHeading + "\nCamera fwd: " + camera.transform.forward.ToString();
+			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude  + "\nPos: " + transform.position.ToString()+ "\nWentDown: "+ wentdown.ToString();
 				else if (Input.location.status == LocationServiceStatus.Initializing)
 						Accel.text = dir.ToString () + "\nLoc data Init";
 		else if (Input.location.status == LocationServiceStatus.Failed)

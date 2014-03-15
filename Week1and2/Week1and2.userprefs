@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/ButtonToGo.cs">
     <Files>
-      <File FileName="Assets/_Scripts/Follow.cs" Line="34" Column="4" />
-      <File FileName="Assets/_Scripts/ShadowObject.cs" Line="15" Column="5" />
-      <File FileName="Assets/_Scripts/PlayerController.cs" Line="49" Column="2" />
+      <File FileName="Assets/_Scripts/ShadowObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/Follow.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/PlayerController.cs" Line="24" Column="20" />
+      <File FileName="Assets/_Scripts/ButtonToGo.cs" Line="20" Column="3" />
+      <File FileName="Assets/_Scripts/ButtonToRestart.cs" Line="17" Column="124" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
