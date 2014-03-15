@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour {
 	public GameObject camera;
 	private bool isEnabled;
 	private bool wentdown;
+	private int score;
 	void Start()
 	{
 		isEnabled = Input.location.isEnabledByUser;
 		Input.location.Start ();
 		wentdown = false;
-
+		score = 0;
 	}
 	void Update()
 	{
@@ -21,8 +22,10 @@ public class PlayerController : MonoBehaviour {
 
 		if (rigidbody.transform.position.y < -20.0f) {
 			wentdown = true;
-						Application.LoadLevel ("Win");
+						Application.LoadLevel ("Die");
 				}
+		if (score > 5)
+						Application.LoadLevel ("Win");
 	}
 	void FixedUpdate()
 	{
@@ -51,5 +54,13 @@ public class PlayerController : MonoBehaviour {
 		rigidbody.AddForce (dir,ForceMode.VelocityChange);
 			//transform.Translate(dir * Scale);
 		}
+		
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Pickup") {
+			other.gameObject.SetActive(false);
+			score++;
+				}
+	}
 	}
 	
