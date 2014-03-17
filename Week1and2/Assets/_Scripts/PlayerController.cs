@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.Escape)){Application.Quit();}
 
-		if (rigidbody.transform.position.y < -20.0f) {
+		if (rigidbody.transform.position.y < -19.0f) {
 			wentdown = true;
 						Application.LoadLevel ("Die");
 				}
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 		dir = rotation * dir;
 
 		if (isEnabled && Input.location.status == LocationServiceStatus.Running)
-			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude  + "\nPos: " + transform.position.ToString()+ "\nWentDown: "+ wentdown.ToString();
+			Accel.text = dir.ToString () + "\nLat:" + Input.location.lastData.latitude + "\nLon:" + Input.location.lastData.longitude + "\nAlt:" + Input.location.lastData.altitude  + "\nPos: " + transform.position.ToString();
 				else if (Input.location.status == LocationServiceStatus.Initializing)
 						Accel.text = dir.ToString () + "\nLoc data Init";
 		else if (Input.location.status == LocationServiceStatus.Failed)
